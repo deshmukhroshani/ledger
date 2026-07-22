@@ -1,4 +1,4 @@
-# Welcome, off-the-ledger, to the 2025 TDI Global Hackathon!
+# Welcome, off-the-ledger!
 
 > [!IMPORTANT]
 > This README may be **changed or overwritten** by the hackathon organisers during the event.
@@ -6,7 +6,7 @@
 
 ## 🚀 Quick Start
 
-Welcome to the hackathon! Follow these steps to get set up:
+Welcome ! Follow these steps to get set up:
 
 1.  **Find Your SSO ID:** Your login for most tools is your personal email transformed. For example, `foo@bar.com` becomes `foo.bar.com@db-hackathon.com`. **This is your most important credential.**
 2.  **Set Your Password:** [Login to Microsoft Azure](http://portal.azure.com) first. You will be prompted to set a new password and configure 2FA on your first login.
@@ -15,7 +15,7 @@ Welcome to the hackathon! Follow these steps to get set up:
 
 ---
 
-## Your Hackathon Environment at a Glance
+## Your  Environment at a Glance
 
 | Platform          | Link                                                                                                                            | Purpose                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |

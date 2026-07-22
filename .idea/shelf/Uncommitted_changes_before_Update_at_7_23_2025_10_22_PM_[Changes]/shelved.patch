@@ -1,0 +1,27 @@
+Index: pages/login.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import streamlit as st\r\nfrom pathlib import Path\r\nfrom time import sleep\r\n\r\n# Configuration for the page\r\nst.set_page_config(page_title=\"WealthWise | Login\", layout=\"centered\")\r\n\r\n# Load in CSS\r\ncss_path = Path(\"assets/styles/login.css\")\r\nif css_path.exists():\r\n    st.markdown(f\"<style>{css_path.read_text()}</style>\", unsafe_allow_html=True)\r\nelse:\r\n    print(\"Path for css was not found\")\r\n\r\n# Redirect the user if they are already authenticated\r\nif st.session_state.get(\"authenticated\", False):\r\n    # We will just go back to the landing page\r\n    st.switch_page(\"../landing_page.py\")\r\n    st.stop()\r\n\r\n# Login form\r\nst.image(\"assets/wealthwiselogo.png\", width=120)\r\nst.subheader(\"Sign in to WealthWise AI\")\r\n\r\n# Temporary user for now\r\nUSERS = {\"demo\": \"hackathon123\"}\r\n\r\n# Create a form\r\nwith st.form(\"login_form\", clear_on_submit=True):\r\n    user = st.text_input(\r\n        label = \"Username\",\r\n        max_chars = 255\r\n    )\r\n    pwd = st.text_input(\r\n        \"Password\",\r\n        max_chars = 100,\r\n        type=\"password\"\r\n    )\r\n    submit = st.form_submit_button(\r\n        label = \"Login\"\r\n    )\r\n    st.page_link(\"pages/signup.py\", label = \"Don't have an account? Register\")\r\n\r\n# Log the user in if their password was correct\r\nif submit:\r\n    if USERS.get(user) == pwd:\r\n        st.session_state[\"authenticated\"] = True\r\n        st.success(\"Login successful! Redirecting…\")\r\n        sleep(0.4)\r\n        st.switch_page(\"landing_page.py\")\r\n    else:\r\n        st.error(\"Invalid username or password\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pages/login.py b/pages/login.py
+--- a/pages/login.py	(revision 82181f06d06550848b48bcf019670a8c20007c39)
++++ b/pages/login.py	(date 1753309536171)
+@@ -15,7 +15,7 @@
+ # Redirect the user if they are already authenticated
+ if st.session_state.get("authenticated", False):
+     # We will just go back to the landing page
+-    st.switch_page("../landing_page.py")
++    st.switch_page("pages/login_home_page.py")
+     st.stop()
+ 
+ # Login form
+@@ -47,6 +47,6 @@
+         st.session_state["authenticated"] = True
+         st.success("Login successful! Redirecting…")
+         sleep(0.4)
+-        st.switch_page("landing_page.py")
++        st.switch_page("login_home_page.py")
+     else:
+         st.error("Invalid username or password")
